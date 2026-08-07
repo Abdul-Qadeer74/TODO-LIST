@@ -19,11 +19,11 @@ const Main = () => {
     deleteTask,
   } = useTaskStore();
 
-  function savetask() {
-    localStorage.setItem("task", JSON.stringify(tasks));
-  }
-  savetask();
-  tasks = JSON.parse(localStorage.getItem("task")) || [];
+  //function savetask() {
+  //   localStorage.setItem("task", JSON.stringify(tasks));
+  // }
+  // savetask();
+  // tasks = JSON.parse(localStorage.getItem("task")) || [];
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) return;
