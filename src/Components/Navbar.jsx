@@ -1,9 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Sun, Plus, Moon } from "lucide-react";
-import { useThemeStore } from "./Store";
+import { useTaskStore, useThemeStore } from "./Store";
 
 const Navbar = () => {
+  // const [title, setTitle] = useState("");
+  // const [description, setDescription] = useState("");
+
   const { Darkmode, toggleTheme } = useThemeStore();
+  const {
+    tasks,
+    isAddOpen,
+    setIsAddOpen,
+    selectedTask,
+    setSelectedTask,
+    addTask,
+    title,
+    setTitle,
+    Description,
+    setDescription,
+  } = useTaskStore();
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", Darkmode);
@@ -15,7 +30,10 @@ const Navbar = () => {
         <h1>TODO LIST</h1>
       </div>
       <div className="w-[45%] h-full text-[#c8d5e5] dark:text-[#b4b4b4] flex items-center justify-evenly ">
-        <button className="w-[40%] h-[90%] bg-[#2b3439] rounded-4xl p-1 flex items-center justify-evenly  dark:border-1 dark:border-[#b4b4b4]">
+        <button
+          className="w-[40%] h-[90%] bg-[#2b3439] rounded-4xl p-1 flex items-center justify-evenly  dark:border-1 dark:border-[#b4b4b4]"
+          onClick={() => setIsAddOpen(true)}
+        >
           <p className="lg:block hidden">ADD NEW TASK</p>
           <Plus />
         </button>
