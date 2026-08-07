@@ -9,7 +9,7 @@ export const useThemeStore = create((set) => ({
 }));
 
 export const useTaskStore = create((set) => ({
-  tasks: [],
+  tasks: JSON.parse(localStorage.getItem("Task")) || [],
   isAddOpen: false,
   selectedTask: null,
   title: "",
